@@ -1,5 +1,6 @@
 var bow , arrow,  background;
 var bowImage, arrowImage, green_balloonImage, red_balloonImage, pink_balloonImage ,blue_balloonImage, backgroundImage;
+var score = 0;
 
 function preload(){
   
@@ -50,18 +51,30 @@ function draw() {
   }
   
   //creating continous balloons
-  var select_balloon = Math.round(random(1,1));
+  var select_balloon = Math.round(random(1,4));
   
   if (World.frameCount % 100 == 0) {
-    if (select_balloon == 1) {
+    if (select_balloon == 1) 
+    {
       redBalloon();
-      blueBalloon();
-      greenBalloon();
-      pinkBalloon();
     }
+    else if(select_balloon == 2)
+    {
+      blueBalloon();
+    }
+    else if(select_balloon == 3)
+    {
+      greenBalloon();
+    }
+    else
+    {
+      pinkBalloon()
+    }
+      
   }
-  
+
   drawSprites();
+  text("Score: "+ score, 270,30)
 }
 
 
